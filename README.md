@@ -29,25 +29,25 @@ handler → service → repository layering and type-safe SQL via [go-jet](https
 ```text
 .
 ├── cmd/
-│ └── main.go # entrypoint: config, DB, routes, server
+│   └── main.go # entrypoint: config, DB, routes, server
 ├── internal/
-│ ├── config/
-│ │ └── environment.go # loads .env, validates required vars
-│ ├── database/
-│ │ ├── database.go # Postgres connection + ping
-│ │ ├── schema.sql # tables, constraints, indexes
-│ │ └── gen/job-board/public/
-│ │ ├── model/ # go-jet generated structs
-│ │ └── table/ # go-jet generated table builders
-│ └── modules/
-│ ├── job/
-│ │ ├── handler.go # GET /jobs, POST /jobs
-│ │ ├── service.go # validation / business rules
-│ │ └── repository.go # SQL via go-jet
-│ └── application/
-│ ├── handler.go # POST /jobs/{id}/apply, GET /jobs/{id}/applications
-│ ├── service.go # validation
-│ └── repository.go # SQL via go-jet
+│   ├── config/
+│   │   └── environment.go # loads .env, validates required vars
+│   ├── database/
+│   │   ├── database.go # Postgres connection + ping
+│   │   ├── schema.sql # tables, constraints, indexes
+│   │   └── gen/job-board/public/
+│   │       ├── model/ # go-jet generated structs
+│   │       └── table/ # go-jet generated table builders
+│   └── modules/
+│       ├── job/
+│       │   ├── handler.go # GET /jobs, POST /jobs
+│       │   ├── service.go # validation / business rules
+│       │   └── repository.go # SQL via go-jet
+│       └── application/
+│           ├── handler.go # POST /jobs/{id}/apply, GET /jobs/{id}/applications
+│           ├── service.go # validation
+│           └── repository.go # SQL via go-jet
 ├── example.env
 ├── go.mod
 └── go.sum
